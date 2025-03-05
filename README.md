@@ -1,5 +1,5 @@
-### Documentation page for the BESS trading simulator.
+### Documentation page for the BESS trading simulator
 
-### Access ![here]().
+### Access [here]().
 
-Made with ![doctemplate by charlyllo](https://github.com/charlyllo/doctemplate)
+Made with [doctemplate by charlyllo](https://github.com/charlyllo/doctemplate)
