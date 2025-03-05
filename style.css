@@ -107,7 +107,7 @@ a:hover {
     width: 200px;
     margin-top: 120px;
     background-color: #fff;
-    overflow-x: hidden;
+    overflow: hidden;
     position: fixed;
     height: 80%;
 
