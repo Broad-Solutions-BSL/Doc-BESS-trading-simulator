@@ -45,7 +45,7 @@ a:hover {
 
 .navbar {
     overflow: hidden;
-    background-color: #0098f1;
+    background-color: #701344;
     color: #333;
     top: 0;
     width: 100%;
@@ -75,7 +75,7 @@ a:hover {
 }
 
 .top {
-    background-color: #0098f1;
+    background-color: #701344;
     height: 650px;
 }
 
@@ -85,7 +85,7 @@ a:hover {
 }
 
 .nav-top {
-    border-top: 8px solid #0098f1;
+    border-top: 8px solid #701344;
 }
 
 .row {
@@ -193,7 +193,7 @@ a:hover {
 }
 
 .right-col a {
-    color: #0098f1;
+    color: #701344;
     text-decoration: underline;
 }
 
@@ -222,7 +222,7 @@ a:hover {
 .divider {
     width: 40px;
     height: 4px;
-    background: #0098f1;
+    background: #701344;
     border-radius: 30px;
     margin: auto;
     margin-top: 8px;
