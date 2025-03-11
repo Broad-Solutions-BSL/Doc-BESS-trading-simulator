@@ -22,7 +22,7 @@
 
     <div class="navbar clear nav-top">
         <div class="row content">
-            <a href="https://broadsolutions.co.nz/home/" target="_blank"><img class="logo" src="logo.png"></a>
+            <a href="https://broadsolutions.co.nz/home/" target="_blank"><img class="logo" src="assets/logo.png"></a>
             <!-- <a class="right" style="text-decoration: underline;" href="#"><i class="fas fa-book"></i>&nbsp; Documentation</a> -->
             <a class="right" href="mailto:genesis.support@broadsolutions.co.nz" target="_blank"><i class="fas fa-envelope"></i>&nbsp; genesis.support@broadsolutions.co.nz</a>
         </div>
@@ -32,128 +32,211 @@
         <div class="row wrapper">
 
             <div class="sidepanel">
-
-                <a class="title" href="#">Introduction</a>
-                
-                <a class="section" href="#">About this App</a>
-                <a class="section" href="#">Supported Versions</a>
-
-                <div class="divider left"></div>
-
-                <a class="title" href="#basicfeatures">Basic Features</a>
-
-                <a class="section" href="#basicfeatures">Feature 1</a>
-                <a class="section" href="#basicfeatures">Feature 2</a>
-                <a class="section" href="#feature3">Feature 3</a>
-                <a class="section" href="#feature3">Feature 4</a>
-                <a class="section" href="#feature3">Feature 5</a>
-
-                <div class="divider left"></div>
-
-                <a class="title" href="#advanced">Advanced Features</a>
-
-                <a class="section" href="#advanced">Feature A</a>
-                <a class="section" href="#featureb">Feature B</a>
-                <a class="section" href="#featurec">Feature C</a>
-                <a class="sub-section" href="#featurec1">Feature C.1</a>
-                <a class="sub-section" href="#featurec2">Feature C.2</a>
-                <a class="section" href="#featured">Feature D</a>
-
-                <div class="divider left"></div>
-
-                <a class="title" href="#accesibility">Accesibility</a>
-
-                <div class="divider left"></div>
-
-                <a class="title" href="#moreinfo">More Info</a>
-
+            
+                <details>
+                    <summary>About</summary>
+                    <a class="section" href="#">About This App</a>
+                    <a class="section" href="#">Supported Versions</a>
+                </details>
+            
+                <div class="divider"></div>
+            
+                <details>
+                    <summary>Interface</summary>
+                    <a class="section" href="#sidebar">Sidebar</a>
+                    <a class="sub-section" href="#sidebar">Settings</a>
+                    <a class="sub-section" href="#controls">Controls</a>
+                    <a class="sub-section" href="#metrics">Summary Metrics</a>
+                    <a class="sub-section" href="#offers">Offering Summary</a>
+                    <a class="sub-section" href="#output">Download Outputs</a>
+                    <a class="section" href="#plot1">Plots & Tables</a>
+                    <a class="sub-section" href="#plot1">Dispatch Plot</a>
+                    <a class="sub-section" href="#plot2">SoC Plot</a>
+                    <a class="sub-section" href="#plot3">Forecast Plots</a>
+                    <a class="sub-section" href="#tables">Bid Tables</a>
+                </details>
+            
+                <div class="divider"></div>
+            
+                <details>
+                    <summary>Design & Theory</summary>
+                    <a class="section" href="#theory">Feature A</a>
+                    <a class="section" href="#featureb">Feature B</a>
+                    <a class="section" href="#featurec">Feature C</a>
+                    <a class="sub-section" href="#featurec1">Assumption C.1</a>
+                    <a class="sub-section" href="#featurec2">Assumption C.2</a>
+                    <a class="section" href="#featured">Feature D</a>
+                </details>
+            
+                <div class="divider"></div>
+                <details>
+                    <summary>Troubleshooting</summary>
+                    <a class="section" href="#troubleshooting">Common Issues</a>            
+                    <a class="section" href="#troubleshooting">Contact Support</a>
+                </details>
             </div>
+            
 
             <div class="right-col">
 
-                <h1 >Introduction</h1>
-                
-                <p>Documentation for the BESS trading simulator</p> 
+                <h1>Documentation for the BESS trading simulator</h1>
                 
                 <h2>About this App</h2>
                 
-                <p>Application for testing battery trading offers based on different price scenarios</p>
+                <p>Application for testing battery trading offers based on different price scenarios.</p>
 
                 <h2>Supported Versions:</h2>
              
-                <p id="basicfeatures"><b>Version 1.0.0</b></p>
-                Each version can be used in its demo version, which uses the container's local files.
+                <p id="sidebar"><b>Version 1.0.0</b></p>
+                Each version can be used in its demo version, which uses the app's local files.
                  
                 <div class="divider" style="width:24%; margin:30px 0;"></div>        
                 
-                <h1>Basic Features</h1>
+                <h1>Interface</h1>
 
-                <h2>Feature 1</h2>
+                <h2>Sidebar</h2>
                 
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+                <p>Overview of sidebar features.</p>
                 
-                <h2>Feature 2</h2>
+                <h3>Settings</h3>
                 
                 <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                These controls can be used to reset the simulation and modify its inputs:
                 <br><br>
-                <b>Explanation 1</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                <br>
-                <br>
-                <b>Explanation 2</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                <br>
-                <br>
-                <b>Explanation 3</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                <br>
-                <br id="feature3">
-                <b>Explanation 4</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-                
-                <h2>Feature 3</h2>
+                <img src="assets/settings.png" class="center-image">
+                <ul>
+                    <li><b>Date of simulation:</b> Sets the simulation day. The dates available depend on the data available in the database. 
+                        When the application is in demo mode, the dates available depend on the data in the application's local files.</li> 
+                    <br>
+                    <li><b>Initial state of charge:</b> Sets the initial battery charge level as a percentage.</li>
+                    <br>
+                    <li><b>Gate closure:</b> Sets the gate closure in hours between 0 and 2h.</li>
+                    <br>
+                    <li><b>Reserves:</b> Whether or not to include reserves in the simulation.</li>
+                    <br>
+                    <li><b>Price impact:</b> Whether or not to include price impact in the simulation.</li>
+                    <br id="controls">
+                    <li><b>Update inputs/Reset simulation:</b> Once the previous values have been set, click on this button to update the simulation. 
+                        You can also click on this button to reset the simulation when it is finished or in progress.</li>
+                </ul></p>
+
+                <h3>Controls</h3>
                 
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                <br id="feature4">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                These commands control the simulation:
+                <br><br>
+                <img src="assets/controls.png" class="center-image">
+                <ul>
+                    <li><b>Simulate up to period:</b> Allows you to skip periods (1 to 48) while keeping the same offers.</li>
+                    <br>
+                    <li><b>Update forecasts:</b> Activates and updates state of charge and dispatch outcomes.</li>
+                    <br id="metrics">
+                    <li><b>Step:</b> Runs the simulation for the next period.</li>
+                </ul>
                 </p>
                 
-                <h2>Feature 4</h2>
+                <h3>Summary metrics</h3>
                 
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                This table provides key metrics for the current simulation period:
+                <br><br>
+                <img src="assets/metrics.png" class="center-image">
+                <ul>
+                    <li><b>Current period:</b> Current period of the simulation.</li>
                     <br>
+                    <li><b>Offer period:</b> Period you offer when you click on next step.</li>
                     <br>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    <li><b>State of charge:</b> SoC percentage and energy at the start of the current period.</li>
                     <br>
-                    <br id="feature5">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    <li><b>Available charge:</b>...</li>
+                    <br>
+                    <li><b>Available storage:</b>...</li>
+                    <br>
+                    <li><b>Cycles:</b>...</li>
+                    <br>
+                    <li><b>Arbitrage revenue:</b>...</li>
+                    <br>
+                    <li><b>Reserves revenue:</b>...</li>
+                    <br id="offers">
+                    <li><b>Arbitrage price spread:</b>...</li> 
+                </ul>
                 </p>
                 
                 
-                <h2>Feature 5</h2>
+                <h3>Offering summary</h3>
                 
                 <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                <br>
-                <br>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                <br>
+                This table shows the results of the simulation with the given offers for the last period:
+                <br><br>
+                <img src="assets/offering.png" class="center-image">
+                <ul>
+                    <li><b>Previous offer period:</b> Latest simulated period.</li>
+                    <br>
+                    <li><b>Total generation offered:</b> Power and energy discharged during last period offered.</li>
+                    <br>
+                    <li><b>Total load offered:</b> Power and energy charged during last period offered.</li>
+                    <br>
+                    <li><b>Total FIR offered:</b> FIR power and energy discharged during last period offered.</li>
+                    <br id="output">
+                    <li><b>Total SIR offered:</b> SIR power and energy discharged during last period offered.</li>
+                </ul>
                 </p>
-                
         
                 
-                <h2>Feature 5</h2>
-                    
+                <h3>Download output button</h3>
+                <img src="assets/output_btn.png" class="center-image" id="plot1">
                 <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                <br id="advanced">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Use this button to download the simulation values in a csv file.
                 </p>
+
+                <h2>Plots & tables</h2>
+                
+                <p>Main content</p>
+                
+                <h3>Dispatch plot</h3>
+                <img src="assets/dispatch_plot.png" class="center-image">
+                <p> 
+                    This graph represents the power dispatched during the simulation for the simulation date, over 48 trading periods. 
+                    It shows the various dispatch components, including FIR, SIR, load and generation, and their forecasts when active (see control buttons). 
+                    Like all the other graphs, It can be displayed in full screen mode (click on the icon at the bottom left when you move the mouse over the graph), 
+                    saved as a png and zoomed in/out.
+                    <br id="plot2">
+                </p>
+                
+                <h3>State of Charge plot</h3>
+                <img src="assets/soc_plot.png" class="center-image">
+                <p>
+                    This graph represents the battery's remaining energy or state of charge over 48 trading periods of the simulation date.
+                <br id="plot3">
+                </p>
+                
+                <h3>Forecast plots</h3>
+                <img src="assets/forecast_plot.png" class="center-image" style="width: 80%; height: auto;">
+                <p>
+                    These 3 graphs (spot + reserves) show the price forecasts for the simulation day and for the start of the following day. 
+                    There are 3 scenarios: a base one and two showing prices with +100 MWh and -100 MWh of demand. 
+                    The supply period is represented by a red line that can be hidden by clicking on its name in the legend.
+                    <br id="tables">
+                </p>
+                
+                
+                <h3>Bid tables</h3>
+                <img src="assets/tables.png" class="center-image" style="width: 80%; height: auto;">
+                <p>
+                    These tables represent default offers for several bands and for each period of the simulation date. There are 4 tabs:
+                    <ul>
+                        <li>6: ...</li>
+                        <li>60: ...</li>
+                        <li>Bids: ...</li>
+                        <li>MW: ...</li>
+                    </ul>
+                    Modify a cell by double-clicking on it. Download the modified tables by clicking on the "Download Tables" button.
+                </p>
+                <br id="theory">
                 
                 <div class="divider" style="width:24%; margin:30px 0;"></div>
                 
-                <h1>Advanced Features</h1>
+                <h1>Design & Theory</h1>
                 
                 <h2>Feature A</h2>
                 
@@ -178,7 +261,7 @@
                 <p id="featurec1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     
                     
-                <h2>Feature C.1</h2>
+                <h3>Assumption C.1</h3>
 
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit:
@@ -197,47 +280,38 @@
                     <br>
                 </ul>
                     
-                    <h2>Feauture C.2</h2>
-                    
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    <br>
-                    <br>
-                        <b>Important:</b> Please notice that lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    <br>
-                    <br>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </p>
-                    
-                    
-                    <h2>Feature D</h2>
-                    
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    <br>
-                    <br id="accesibility">
+                <h3>Assumption C.2</h3>
+                
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                <br>
+                <br>
+                    <b>Important:</b> Please notice that lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                <br>
+                <br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+                
+                
+                <h2>Feature D</h2>
+                
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    
+
+                <br id="troubleshooting">    
                     
                 <div class="divider" style="width:24%; margin:30px 0;"></div>
-                    
-                    <h1>Accessibility</h1>
-                    
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    <br>
-                    <br>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    <br>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    
-                    <p>Lorem ipsum dolor sit amet.
-                        <br id="moreinfo">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    
-                <div class="divider" style="width:24%; margin:30px 0;"></div>
+                
+                <h1>Troubleshooting</h1> 
 
-                <h1>More Info</h1>
+                <h2>Common Issues</h2>
+                <br>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.marks are protected by intellectual property rights.</p>
+                <h2>Contact Support</h2>
+                <p>Feel free to contact us to report a bug or request a feature:
+                    <a href="mailto:genesis.support@broadsolutions.co.nz" target="_blank">genesis.support@broadsolutions.co.nz</a>
+                </p>
 
                 <div class="doublespace"></div>
                 <div class="divider" style="width:24%; margin:30px 0;"></div>
