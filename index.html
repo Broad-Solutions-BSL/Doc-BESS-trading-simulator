@@ -59,13 +59,13 @@
                 <div class="divider"></div>
             
                 <details>
-                    <summary>Design & Theory</summary>
-                    <a class="section" href="#theory">Feature A</a>
-                    <a class="section" href="#featureb">Feature B</a>
-                    <a class="section" href="#featurec">Feature C</a>
-                    <a class="sub-section" href="#featurec1">Assumption C.1</a>
-                    <a class="sub-section" href="#featurec2">Assumption C.2</a>
-                    <a class="section" href="#featured">Feature D</a>
+                    <summary>Dispatch and Offering Logic</summary>
+                    <a class="section" href="#Invalid offer handling">Invalid offer handling</a>
+                    <a class="section" href="#Curtailment of over offering">Curtailment of over offering</a>
+                    <a class="section" href="#Dispatch Priorities">Dispatch Priorities</a>
+                    <a class="section" href="#Examples">Examples</a>
+                    <a class="sub-section" href="#Example of Gate Closure">Example of Gate Closure</a>
+                    <a class="sub-section" href="#Example of Price Impact">Example of Price Impact</a>
                 </details>
             
                 <div class="divider"></div>
@@ -83,7 +83,7 @@
                 
                 <h2>About this App</h2>
                 
-                <p>Application for testing battery trading offers based on different price scenarios.</p>
+                <p>The intent of this tool is to simulate the trading of the BESS for historic dates, using real time forecast prices to show how price movement and changes in forecasts can affect trading outcome throughout the day. </p>
 
                 <h2>Supported Versions:</h2>
              
@@ -108,13 +108,17 @@
                     <li><b>Date of simulation:</b> Sets the simulation day. The dates available depend on the data available in the database. 
                         When the application is in demo mode, the dates available depend on the data in the application's local files.</li> 
                     <br>
-                    <li><b>Initial state of charge:</b> Sets the initial battery charge level as a percentage.</li>
+                    <li><b>Initial state of charge:</b> Sets the initial BESS charge level as a percentage. (Based on a 200MWh capacity)</li>
                     <br>
                     <li><b>Gate closure:</b> Sets the gate closure in hours between 0 and 2h.</li>
                     <br>
-                    <li><b>Reserves:</b> Whether or not to include reserves in the simulation.</li>
+                    <li><b>Reserves:</b> Whether or not to include reserves in the simulation, turning this off will mean all reserve offers are set to 0 automatically.</li>
                     <br>
-                    <li><b>Price impact:</b> Whether or not to include price impact in the simulation.</li>
+                    <li><b>Price impact:</b> A feature that turns on or off the effect that offering the BESS has on the final market price.
+                        <ul>
+                            <li> Offering generation could reduce price and offering load could increase price.
+                        </ul>
+                    </li>
                     <br id="controls">
                     <li><b>Update inputs/Reset simulation:</b> Once the previous values have been set, click on this button to update the simulation. 
                         You can also click on this button to reset the simulation when it is finished or in progress.</li>
@@ -127,9 +131,9 @@
                 <br><br>
                 <img src="assets/controls.png" class="center-image">
                 <ul>
-                    <li><b>Simulate up to period:</b> Allows you to skip periods (1 to 48) while keeping the same offers.</li>
+                    <li><b>Simulate up to period:</b> Simulates offering and dispatching up to a specified period (1-48) while keeping the same offers.</li>
                     <br>
-                    <li><b>Update forecasts:</b> Activates and updates state of charge and dispatch outcomes.</li>
+                    <li><b>Update forecasts:</b> Activates and updates the potienal state of charge and dispatch outcomes based on the current offers and the base forecast schedule.</li>
                     <br id="metrics">
                     <li><b>Step:</b> Runs the simulation for the next period.</li>
                 </ul>
@@ -148,17 +152,17 @@
                     <br>
                     <li><b>State of charge:</b> SoC percentage and energy at the start of the current period.</li>
                     <br>
-                    <li><b>Available charge:</b>...</li>
+                    <li><b>Available charge:</b> The amount of charge in the BESS that you can offer to the market.(Based on possible outcomes from offers locked in gate closure)</li>
                     <br>
-                    <li><b>Available storage:</b>...</li>
+                    <li><b>Available storage:</b>The amount of storage in the BESS that you can offer to the market.(Based on possible outcomes from offers locked in gate closure)</li>
                     <br>
-                    <li><b>Cycles:</b>...</li>
+                    <li><b>Cycles:</b> Total number of cycles of the BESS</li>
                     <br>
-                    <li><b>Arbitrage revenue:</b>...</li>
+                    <li><b>Arbitrage revenue:</b> Revenue Generated from load and generation</li>
                     <br>
-                    <li><b>Reserves revenue:</b>...</li>
+                    <li><b>Reserves revenue:</b> Revenue Generated from FIR and SIR</li>
                     <br id="offers">
-                    <li><b>Arbitrage price spread:</b>...</li> 
+                    <li><b>Arbitrage price spread:</b> Weighted average price difference between load and generation</li> 
                 </ul>
                 </p>
                 
@@ -166,19 +170,23 @@
                 <h3>Offering summary</h3>
                 
                 <p>
-                This table shows the results of the simulation with the given offers for the last period:
+                This table shows the actual offer volumes from the pervious offer period:
+                <br>
+                These volumes will not always match the amounts in the offer table is due to the curtailment for over offering among other reasons. 
+                <br>
+                For more information about this process see the Dispatch and Offering Logic Section
                 <br><br>
                 <img src="assets/offering.png" class="center-image">
                 <ul>
                     <li><b>Previous offer period:</b> Latest simulated period.</li>
                     <br>
-                    <li><b>Total generation offered:</b> Power and energy discharged during last period offered.</li>
+                    <li><b>Total generation offered:</b> Power and energy cleared for offering during last period offered.</li>
                     <br>
-                    <li><b>Total load offered:</b> Power and energy charged during last period offered.</li>
+                    <li><b>Total load offered:</b> Power and energy cleared for offering during last period offered.</li>
                     <br>
-                    <li><b>Total FIR offered:</b> FIR power and energy discharged during last period offered.</li>
+                    <li><b>Total FIR offered:</b> FIR power and energy cleared for offering during last period offered.</li>
                     <br id="output">
-                    <li><b>Total SIR offered:</b> SIR power and energy discharged during last period offered.</li>
+                    <li><b>Total SIR offered:</b> SIR power and energy cleared for offering during last period offered.</li>
                 </ul>
                 </p>
         
@@ -206,7 +214,7 @@
                 <h3>State of Charge plot</h3>
                 <img src="assets/soc_plot.png" class="center-image">
                 <p>
-                    This graph represents the battery's remaining energy or state of charge over 48 trading periods of the simulation date.
+                    This graph represents the BESS's remaining energy or state of charge over 48 trading periods of the simulation date.
                 <br id="plot3">
                 </p>
                 
@@ -215,7 +223,7 @@
                 <p>
                     These 3 graphs (spot + reserves) show the price forecasts for the simulation day and for the start of the following day. 
                     There are 3 scenarios: a base one and two showing prices with +100 MWh and -100 MWh of demand. 
-                    The supply period is represented by a red line that can be hidden by clicking on its name in the legend.
+                    The offer period is represented by a red line that can be hidden by clicking on its name in the legend.
                     <br id="tables">
                 </p>
                 
@@ -232,72 +240,127 @@
                     </ul>
                     Modify a cell by double-clicking on it. Download the modified tables by clicking on the "Download Tables" button.
                 </p>
-                <br id="theory">
+                
                 
                 <div class="divider" style="width:24%; margin:30px 0;"></div>
                 
-                <h1>Design & Theory</h1>
                 
-                <h2>Feature A</h2>
+                <h1>Dispatch and Offering Logic</h1>
+                This section will outline the different components of how the code operates in regard to handling offer and dispatch, including:
+                    <ul>
+                        <li>Invalid offer handling</li>
+                        <li>Curtailment of over offering</li>
+                        <li>Dispatch priorities and constraints</li>
+                    </ul>
                 
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                <br>
-                <br id="featureb">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+                <p id="Invalid offer handling"></p> 
+
+
+                <h2>Invalid offer handling</h2>
+                
+                Invalid Offers are offers that are not allowed no matter the state of the current storage or previous offers, this includes:
+                    <ul>
+                        <li>Offering MW volumes above BESS capability/Ratings</li>
+                        <li>Offering generation and load at overlapping prices
+                            <ul>
+                                <li>e.g., offering to charge for more than you would discharge</li>
+                                <li>This is not allowed and could result in BESS being called to charge and discharge at the same time (Not physically possible)</li>
+                            </ul>
+                        </li>
+                        <li>Offering prices and volumes that are too small
+                            <ul>
+                                <li>$0.01/MWh for prices</li>
+                                <li>0.001MW for volumes</li>
+                            </ul>
+                        </li>
+                    </ul>
+              
+               
+                
+                <p id="Curtailment of over offering"></p> 
+         
+                <h2>Curtailment of over offering</h2>
+                <p>
+                    This happens when an offer is made that cannot be met due to storage constraints or offer constraints:
+                    <br>
+                    <br>
+                    We refer to storage constraints being when there is not enough charge in the BESS to dispatch all the generation in the offers or there too much charge/not enough storage to charge the total volume of load offered.
+                    <br>
+                    <br>
+                
+                    The other possible reason for curtailment is due to offers locked within gate closures. 
+                    When an offer is in gate closure the trader no longer has any control over how the BESS will dispatch, if 100MW of charge and 50MW of discharge have been offered within the gate closure period there is no way to know for certain if the BESS will be called to charge 100MW or discharge 50MW. 
+                    This leaves us with two possible constraint boundaries, one represents the lowest possible SOC outcome from the current offers lock in gate closure and the other represents the highest possible SOC outcome. 
+                    Discharge offers (Energy and Reserves) are constrained by the lowest SOC outcome and charges offers (Bids) are constrained by the highest SOC outcome.<br> <br>
+               
+                    For charge offers curtailement is simple, the highest prices are curtailed first. 
+                    For discharge it is a little different, the BESS will curtail the discharge offers of the lowest price first (usually FIR and SIR).
+                    However if two offers have the same price then offers are curtailed based of the amount of energy discharge required so Energy first then SIR then FIR
+                    (Energy required 30mins of discharge, SIR 15mins and FIR 1 minute, therefore imply that if they are offer at the same price FIR will provide the best value)
+                </p>
+
+                <p id="Dispatch Priorities"></p> 
+       
+                <h2>Dispatch priorities and constraints</h2>
+                
+                <p>
+                    Once the offers have been curtailed and are now at the point of dispatch there is another decision the code has to make around how to prioritize the dispatch of Reserves vs Energy. 
+                    This is because the system operator allows a participant to offer a combined volume of energy and reserves above the nameplate capacity ( Example 100MW BESS can offer 100MW Energy, 100MW SIR and 100MW SIR). 
+                    The same MW can be offered for FIR and SIR however the same MW cannot be offered for Energy and reserves.
+                </p>
+
+                So, in the example above some of the possible dispatch outcomes are (Assuming complete dispatch):
+                    <ul>
+                        <li>100MW Energy</li>
+                        <li>100MW FIR and 100MW SIR</li>
+                        <li>50MW Energy, 50MW FIR and 50MW SIR </li>
+                        <ul>
+                            <li>Or any combination where Energy+max (FIR,SIR) <= Capacity</li>
+                        </ul>
+                    </ul>
+                <p>
+                    In the market the System operate will maintain this constraint and dispatch based on the lowest cost to the overall system. 
+                    However, in this case we don’t have to simulate the entire market so need to make some assumptions, The assumption is that the dispatch is going to be carried out based on the maximum return to the BESS, 
+                    (As energy prices usually> Reserve prices this means FIR and SIR are a lot less likely to be dispatched).<br><br>
+
+                    Note that this issue is not a problem for Bids as reserves can be offered essentially as a curtailment of bids/load.
+
+
+
+                </p>
+                
+
+
+
+                <p id="Examples"></p> 
+                <h2>Examples</h2>
                     
                 
-                <h2>Feature B</h2>
-                
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                <br>
-                <br id="featurec">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                
-                
-                <h2>Feature C</h2>
-                    
-                <p id="featurec1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    
-                    
-                <h3>Assumption C.1</h3>
+
+                <p id="Example of Gate Closure"></p> 
+
+                <h3>Example of Gate Closure: 1 Hour </h3>
 
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit:
+                    If your current period is 5, the periods you can offer for are period 8 and onwards. 
+                    At period 5 you know the outcomes for period 1-4, you do not know the outcomes for period 5 as you are currently experiencing it. 
+                    You also don’t know the outcomes for period 6 and 7 because they have not happened yet, however you cannot adjust your offers for these periods because they are within gate closure.
                 </p>
                 
-                    <ul>
-                    <li>
-                    <b>Point 1</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    <br>
-                    <li>
-                    <b>Point 2</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-                    </li>
-                    <br id="featurec2">
-                        <li>
-                    <b>Point 3</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    <br>
-                </ul>
-                    
-                <h3>Assumption C.2</h3>
+                 
+                <p id="Example of Price Impact"></p> 
+                <h3>Example of Price Impact</h3>
                 
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                <br>
-                <br>
-                    <b>Important:</b> Please notice that lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                <br>
-                <br>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                <p>
+                    For period 5 the price impact is calculated by taking the difference between the forecast Base price and the -/+100 MW sensitivity prices for period 5 as seen at period 4 and then dividing by 100. 
+                    This is then applied linearly to every MW dispatch by the BESS. 
+                    If at period 4 the base forecast price for period 5 is $100/MWh, $150/MWh for +100 and $50/MWh for -100  
+                    then there is a $0.5/MWh/MW scaling applied to any MWh charged or discharged from the BESS. 
+                    If the Final price ends up being $90/MWh but the BESS has dispatched 50MW of generation then the price will be reduced by 0.5*50 =$25/MWh down to $65/MWh. 
+                    However, if the BESS is offering at a price above $65/MWh then it will become marginal, eg if offer price was $70/MWh then the BESS will only be partially dispatched to the amount that will reduce the price to $70/MWh (40MW).
                 </p>
                 
-                
-                <h2>Feature D</h2>
-                
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
                 <br id="troubleshooting">    
                     
