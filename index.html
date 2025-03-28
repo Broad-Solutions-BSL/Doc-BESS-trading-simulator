@@ -87,7 +87,10 @@
 
                 <h2>Supported Versions:</h2>
              
-                <p id="sidebar"><b>Version 1.0.0</b></p>
+                <p id="sidebar">
+                    Version 1.0.0 - First release<br>
+                    <b>Version 1.0.1</b> - New feature: upload button
+                </p>
                 Each version can be used in its demo version, which uses the app's local files.
                  
                 <div class="divider" style="width:24%; margin:30px 0;"></div>        
@@ -170,7 +173,7 @@
                 <h3>Offering summary</h3>
                 
                 <p>
-                This table shows the actual offer volumes from the pervious offer period:
+                This table shows the actual offer volumes from the pervious offer period.
                 <br>
                 These volumes will not always match the amounts in the offer table is due to the curtailment for over offering among other reasons. 
                 <br>
@@ -206,7 +209,7 @@
                 <p> 
                     This graph represents the power dispatched during the simulation for the simulation date, over 48 trading periods. 
                     It shows the various dispatch components, including FIR, SIR, load and generation, and their forecasts when active (see control buttons). 
-                    Like all the other graphs, It can be displayed in full screen mode (click on the icon at the bottom left when you move the mouse over the graph), 
+                    Like all the other graphs, It can be displayed in full screen mode (click on the icon at the bottom right when hovering), 
                     saved as a png and zoomed in/out.
                     <br id="plot2">
                 </p>
@@ -222,7 +225,7 @@
                 <img src="assets/forecast_plot.png" class="center-image" style="width: 80%; height: auto;">
                 <p>
                     These 3 graphs (spot + reserves) show the price forecasts for the simulation day and for the start of the following day. 
-                    There are 3 scenarios: a base one and two showing prices with +100 MWh and -100 MWh of demand. 
+                    There are 3 scenarios: a base one and two showing prices with +100 MW and -100 MW of demand. 
                     The offer period is represented by a red line that can be hidden by clicking on its name in the legend.
                     <br id="tables">
                 </p>
@@ -231,14 +234,11 @@
                 <h3>Bid tables</h3>
                 <img src="assets/tables.png" class="center-image" style="width: 80%; height: auto;">
                 <p>
-                    These tables represent default offers for several bands and for each period of the simulation date. There are 4 tabs:
-                    <ul>
-                        <li>6: ...</li>
-                        <li>60: ...</li>
-                        <li>Bids: ...</li>
-                        <li>MW: ...</li>
-                    </ul>
-                    Modify a cell by double-clicking on it. Download the modified tables by clicking on the "Download Tables" button.
+                    These tables represent default offers for several bands and for each period of the simulation date.<br>
+                    Modify a cell by double-clicking on it.<br>By clicking on "Upload Tables", you can upload an Excel file (.xlsx) in order to modify the offers more easily. 
+                    If no file is provided, a default Excel file is used. 
+                    Please follow its format (use the download button to save it) to avoid uploading/processing problems and watch out for strange characters in your data.<br>
+                    By clicking on "Download tables", you can download the table data in an Excel file (.xlsx) with all the changes you have made.
                 </p>
                 
                 
